@@ -1,0 +1,43 @@
+A City Builder, inspired by Grand Ages Rome, Children of the Nile, Lands of Lords and other such games
+======
+Issues
+======
+-ConstructionMenuSelection uses a method [ChangeSelection()] instead of an event to inform BuildingManager what something was selected. 
+-To properly update ResourcePanel, I probably need an Event: OnChangedResourceValue or something, so it will only update when necessary
+-Hmm, probably gonna need to convert resources into separate classes, for modularity and stuff
+
+-BuildingDecoy snap to grid doesn't work
+
+-BuildingDecoy turns green even if you don't have enough resources
+
+======
+TODO
+======
+-water animations
+
+
+
+======
+Changelog
+======
+
+r2
+Added:
+-Build Mode
+-basic resources
+-basic construction logic [checking for resources, checking if tile is free]
+-TODO Tooltip
+-Deconstruction
+-TODO buildings actually work now
+
+Changed:
+-Construction logic flows from UIManager now, instead of each tile separately
+
+r1 - Started project
+Added:
+-some basic tiles and buildings
+-some basic GUI elements
+-can construct buildings
+
+
+
