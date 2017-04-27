@@ -2,33 +2,41 @@ A City Builder, inspired by Grand Ages Rome, Children of the Nile, Lands of Lord
 ======
 Issues
 ======
--ConstructionMenuSelection uses a method [ChangeSelection()] instead of an event to inform BuildingManager what something was selected. 
--To properly update ResourcePanel, I probably need an Event: OnChangedResourceValue or something, so it will only update when necessary
--Hmm, probably gonna need to convert resources into separate classes, for modularity and stuff
-
--BuildingDecoy snap to grid doesn't work
-
--BuildingDecoy turns green even if you don't have enough resources
+-Hmm, GUI: info will be on the left, while actionable things to the right, that's the general rule, for now. I'll see how it feels like
 
 ======
 TODO
 ======
--water animations
 
-
+r4 TODO
+ADDED
+-TODO - tooltip? Do I really need it if I have gui panel which shows all info?
+-TODO buildings actually work now [have effects]
 
 ======
 Changelog
 ======
+
+r3 
+Added
+-data files for Tiles, Buildings and Trades [villager vocations basically]. It will be now very easy to change/add new ones as needed.
+-basic GUI to show tile+building+settler(s) info 
+-Basic editors scripts for Tiles and Buildings to make testing and some other things easier
+-proper Settler data + show Settler(s) info
+
+Changed
+-going for tile based/settler centered gameplay pivot, instead of the old implementation
+
+Fixed
+-buildings properly spawn now
 
 r2
 Added:
 -Build Mode
 -basic resources
 -basic construction logic [checking for resources, checking if tile is free]
--TODO Tooltip
 -Deconstruction
--TODO buildings actually work now
+
 
 Changed:
 -Construction logic flows from UIManager now, instead of each tile separately

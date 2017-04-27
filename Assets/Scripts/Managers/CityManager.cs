@@ -25,31 +25,5 @@ public class CityManager : MonoBehaviour
         }
     }
 
-    public int cash;
-    public int Cash
-    {
-        get { return cash; }
-        set { cash = value; }
-    }
-
-    public int wood;
-    public int Wood
-    {
-        get { return wood; }
-        set { wood = value; }
-    }
-
-    public int wheat;
-    public int Wheat
-    {
-        get { return wheat; }
-        set { wheat = value; }
-    }
-
-    public int pops;
-    public int Pops
-    {
-        get { return pops; }
-        set { pops = value; }
-    }
+    
 }

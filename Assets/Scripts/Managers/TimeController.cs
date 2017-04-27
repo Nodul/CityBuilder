@@ -41,7 +41,7 @@ public class TimeController : MonoBehaviour {
     readonly int NORMAL_SPEED = 1;
     readonly int FAST_SPEED = 5;
     readonly int FASTEST_SPEED = 10;
-   // readonly float SPEEDMOD = 7; //this is so seconds change very fast, giving off a dynamic vibe [mostly used in missions]
+
     int currentSpeed = 0;
 
     //Add start TimeDate variables, needed for save game probably

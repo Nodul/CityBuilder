@@ -25,163 +25,77 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    private void Start()
+    {
+        if(Selector == null)
+        {
+            Selector = GameObject.FindGameObjectWithTag("Selector").GetComponent<Selector>();
+         
+        }
+        Selector.enabled = false; // turn off so it won't show without having selected something.
+    }
+
     public UIMode uiMode;
     public UIMode UIMode
     {
         get { return uiMode; }
     }
 
-    public BuildDecoy BuildingDecoy; //a green field/something to show where will the building be constructed
-    public GameObject tooltipPanel;
-    //public GameObject Building
+    public Tile SelectedTile;
+    public Settler SelectedSettler;
+    public Selector Selector;
 
-    RaycastHit2D hit;
-    Vector2 camPoint;
-    Vector2 mouse;
+    public TileInfoPanel tileIP;
+    public BuildingInfoPanel buildingIP;
 
-    void Start()
+    public SettlerListInfoPanel settlerListIP;
+    public SettlerInfoPanel settlerIP;
+
+    public void UISelectTile(Tile tile)
     {
-        //if (starWindow == null) starWindow = GameObject.FindObjectOfType<StarWindow>().GetComponent<StarWindow>();
-        //if (empireWindow == null) empireWindow = GameObject.FindObjectOfType<EmpireWindow>().GetComponent<EmpireWindow>();
+        SelectedTile = tile;
+        Selector.transform.position = tile.transform.position;
+        Selector.enabled = true;
+
+        tileIP.gameObject.SetActive(true);
+        tileIP.AssignContent(tile);
+        tileIP.Draw();
+
+        buildingIP.gameObject.SetActive(true);
+        buildingIP.AssignContent(tile.MyBuilding);
+        buildingIP.Draw();
+
+        settlerListIP.gameObject.SetActive(true);
+        settlerListIP.AssignContent(tile.Settlers);
+        settlerListIP.Draw();
     }
-    //This probably isn't needed for now. TODO also add graphical indicator [circle or something]
-    #region //Selection indicator
-    /*
-    public Selectable currentSelection;
-    public Selectable CurrentSelection
+
+    public void UIDeselectTile()
     {
-        get { return currentSelection; }
-        set
-        {
-            if (currentSelection != null) currentSelection.GetDeselected();
-            currentSelection = value;
-            currentSelection.GetSelected();
-        }
-    }
-    */
-    #endregion
+        SelectedTile = null;
+        Selector.enabled = false;
 
-    public void MonthlyUpdate()
+        tileIP.gameObject.SetActive(false);
+        buildingIP.gameObject.SetActive(false);
+
+        settlerListIP.gameObject.SetActive(false);
+        settlerIP.gameObject.SetActive(false);
+
+
+    }
+
+    public void UISelectSettler(Settler settler)
     {
-        //if (starWindow.isActiveAndEnabled) starWindow.Draw();
-       // if (empireWindow.isActiveAndEnabled) empireWindow.Draw();
-        //Debug.Log("Firing monthly UIManager update!");
+        this.SelectedSettler = settler;
+        settlerIP.gameObject.SetActive(true);
+        settlerIP.AssignContent(settler);
+        settlerIP.Draw();
     }
-
-  
-    void Update()
+    public void UIDeselectSettler()
     {
-        mouse = Input.mousePosition;
-        switch (uiMode)
-        {
-            case UIMode.Default:
-                break;
-            case UIMode.Build:
-                HandleBuildMode();
-                break;
-        }
-        HandleTooltip();
-        
-    }
-    void FixedUpdate()
-    {
-        camPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        hit = Physics2D.Raycast(new Vector2(camPoint.x,camPoint.y),Vector2.zero,0f);
-
-        if(hit.collider != null)
-        {
-            Debug.Log(hit.transform.name);
-        }  
+        this.SelectedSettler = null;
+        settlerIP.gameObject.SetActive(false);
+        settlerIP.Clear();
     }
 
-    void HandleTooltip()
-    {
-        //if(hit.collider.GetComponent<Tool>)
-        RectTransform rect = tooltipPanel.GetComponent<RectTransform>();
-        tooltipPanel.transform.position = new Vector2(mouse.x + rect.rect.width/3, mouse.y - rect.rect.height/3);
-    }
-
-    public void ChangeMode(UIMode mode)
-    {
-        uiMode = mode;
-        switch (mode)
-        {
-            case UIMode.Default:
-                BuildingDecoy.gameObject.SetActive(false);
-                break;
-            case UIMode.Build:
-                BuildingDecoy.gameObject.SetActive(true);
-                break;
-        }
-    }
-
-    void HandleBuildMode()
-    {
-        //Vector2 mouse = Input.mousePosition;
-        //if(hit.collider != null) BuildingDecoy.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y, 0);
-        BuildingDecoy.transform.position = new Vector3(mouse.x, mouse.y, 0);
-
-        if (hit.collider != null)
-        {
-            BuildingDecoy.gameObject.SetActive(true);
-            if (hit.transform.GetComponent<Tile>())
-            {
-                Tile tl = hit.transform.GetComponent<Tile>();
-                if (tl.IsBlocking == false && tl.IsOccupied == false)//found empty space
-                {
-                    BuildingDecoy.ChangeDecoyStatus(BuildDecoyStatus.OK);
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        if (BuildingManager.Instance.CheckIfEligibleToBuild(tl))
-                        {
-                            Building bld = BuildingManager.Instance.ConstructBuilding(tl);
-                            tl.AssignBuilding(bld);
-                        }
-                        else
-                        {
-                            Debug.Log("Not enough resources to build");
-                        }
-                    }
-                    
-                }
-                else
-                {
-                    BuildingDecoy.ChangeDecoyStatus(BuildDecoyStatus.Wrong);
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("Cannot construct building, this tile is already occupied!");
-                    }
-                    else if (Input.GetMouseButtonDown(2))
-                    {
-                        BuildingManager.Instance.DeconstructBuilding(tl);
-                        Debug.Log("Destroyed building");
-                    }
-                }
-            }
-        }
-        else
-        {
-            BuildingDecoy.gameObject.SetActive(false);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-         
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            ChangeMode(UIMode.Default);
-        }
-      
-    }
-    /// <summary>
-    /// Round to snap grid
-    /// </summary>
-    /// <param name="input"></param>
-    /// <param name="snapValue"></param>
-    /// <returns></returns>
-    float RoundSnap(float input, float snapValue = 1)
-    {       
-      return snapValue * Mathf.Round(input/snapValue);
-    }
 }

@@ -2,50 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Main thing players will interact with directly and through it, with most other things
+/// </summary>
 public class Tile : MonoBehaviour {
 
     public bool IsBlocking; //Can't move through this: water, mountain etc
     public bool IsOccupied; //By building; blocks some types of movement
 
     public Building MyBuilding;
+    public AreaData Area;
+    public List<Settler> Settlers;
 
-    public void AssignBuilding(Building newBuilding)
+    public SpriteRenderer renderer2D;
+
+    void Start()
     {
-        MyBuilding = newBuilding;
-        MyBuilding.MyTile = this;
-        IsOccupied = true;
+        //this.renderer2D = this.GetComponent<SpriteRenderer>();
+        Render();
     }
-    public void UnassignBuilding()
+
+    public void EnterSettler(Settler settler)
     {
-        MyBuilding.MyTile = null;
-        DestroyObject(MyBuilding.gameObject);
-        MyBuilding = null;
-        IsOccupied= false;
+        Settlers.Add(settler);
+    }
+    public void LeaveSettler(Settler settler)
+    {
+        Settlers.Remove(settler);
+    }
+
+    public void Render(bool alsoRenderBuilding = true)
+    {
+        renderer2D.sprite = Area.Sprite;
+        if (alsoRenderBuilding && MyBuilding != null) MyBuilding.Render(); 
     }
 
     void OnMouseDown()
     {
-        //AttempConstruction();
+        SelectTile();
     }
 
-    /// <summary>
-    /// [Deprecated] 
-    /// </summary>
-    void AttempConstruction()
+    public void SelectTile()
     {
-        
-        if(UIManager.Instance.UIMode == UIMode.Build)
-        {
-            if (IsBlocking == false && IsOccupied == false)
-            {
-                Building NewBuilding = BuildingManager.Instance.ConstructBuilding(this);
-                AssignBuilding(NewBuilding);
-            }
-            else
-            {
-                Debug.Log("Cannot construct building, this tile is already occupied!");
-            }
-        }
-      
+        UIManager.Instance.UISelectTile(this);
     }
+
+
 }

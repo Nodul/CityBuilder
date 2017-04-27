@@ -20,16 +20,16 @@ public class ResoucePanel : MonoBehaviour {
         switch (myResource)
         {
             case Resources.Cash:
-                UpdateText(CityManager.Instance.Cash.ToString());
+           //     UpdateText(CityManager.Instance.Cash.ToString());
                 break;
             case Resources.Wood:
-                UpdateText(CityManager.Instance.Wood.ToString());
+           //     UpdateText(CityManager.Instance.Wood.ToString());
                 break;
             case Resources.Wheat:
-                UpdateText(CityManager.Instance.Wheat.ToString());
+          //      UpdateText(CityManager.Instance.Wheat.ToString());
                 break;
             case Resources.Pops:
-                UpdateText(CityManager.Instance.Pops.ToString());
+          //      UpdateText(CityManager.Instance.Pops.ToString());
                 break;
         }
     }
