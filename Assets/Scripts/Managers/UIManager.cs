@@ -47,9 +47,11 @@ public class UIManager : MonoBehaviour {
 
     public TileInfoPanel tileIP;
     public BuildingInfoPanel buildingIP;
+    //public ResourcesInfoPanel resourcesIP; ???
 
     public SettlerListInfoPanel settlerListIP;
     public SettlerInfoPanel settlerIP;
+    public OrdersListInfoPanel ordersListIP;
 
     public void UISelectTile(Tile tile)
     {
@@ -68,6 +70,9 @@ public class UIManager : MonoBehaviour {
         settlerListIP.gameObject.SetActive(true);
         settlerListIP.AssignContent(tile.Settlers);
         settlerListIP.Draw();
+
+        ordersListIP.gameObject.SetActive(true);
+        ordersListIP.Draw();
     }
 
     public void UIDeselectTile()

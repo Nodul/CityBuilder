@@ -3,19 +3,21 @@ A City Builder, inspired by Grand Ages Rome, Children of the Nile, Lands of Lord
 Issues
 ======
 -Hmm, GUI: info will be on the left, while actionable things to the right, that's the general rule, for now. I'll see how it feels like
+-SettlerInfoPanel needs a Goto panel
 
 ======
 TODO
 ======
-
-r4 TODO
-ADDED
--TODO - tooltip? Do I really need it if I have gui panel which shows all info?
--TODO buildings actually work now [have effects]
+-TODO - tooltip? Do I really need it if I have gui panels which show all the info?
 
 ======
 Changelog
 ======
+r4 TODO
+ADDED
+-TODO buildings actually work now [have effects]
+-TODO basic orders for Settlers [move, build building, demolish]
+-TODO basic resources
 
 r3 
 Added

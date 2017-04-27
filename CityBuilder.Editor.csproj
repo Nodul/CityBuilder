@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\Data\AreaDataAsset.cs" />
     <Compile Include="Assets\Editor\Data\BuildingDataAsset.cs" />
+    <Compile Include="Assets\Editor\Data\ResourceDataAsset.cs" />
     <Compile Include="Assets\Editor\Data\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Editor\Data\TradeDataAsset.cs" />
     <Compile Include="Assets\Editor\Inspectors\BuildingEditor.cs" />

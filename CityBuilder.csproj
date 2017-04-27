@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Building.cs" />
     <Compile Include="Assets\Scripts\BuildingData.cs" />
     <Compile Include="Assets\Scripts\GUI\BuildingInfoPanel.cs" />
+    <Compile Include="Assets\Scripts\GUI\OrdersListInfoPanel.cs" />
     <Compile Include="Assets\Scripts\GUI\PanelBase.cs" />
     <Compile Include="Assets\Scripts\GUI\ResoucePanel.cs" />
     <Compile Include="Assets\Scripts\GUI\Selector.cs" />
@@ -93,8 +94,13 @@
     <Compile Include="Assets\Scripts\Managers\BuildingManager.cs" />
     <Compile Include="Assets\Scripts\Managers\CityManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameController.cs" />
+    <Compile Include="Assets\Scripts\Managers\OrderManager.cs" />
     <Compile Include="Assets\Scripts\Managers\TimeController.cs" />
     <Compile Include="Assets\Scripts\Managers\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Orders\MoveSettlerOrder.cs" />
+    <Compile Include="Assets\Scripts\Orders\OrderBase.cs" />
+    <Compile Include="Assets\Scripts\Resource.cs" />
+    <Compile Include="Assets\Scripts\ResourceData.cs" />
     <Compile Include="Assets\Scripts\Settler.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\TradeData.cs" />
