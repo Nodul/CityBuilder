@@ -33,6 +33,9 @@ public class UIManager : MonoBehaviour {
          
         }
         Selector.enabled = false; // turn off so it won't show without having selected something.
+
+        resourceIP.AssignContent(CityManager.Instance.CityResources);
+        resourceIP.Draw();
     }
 
     public UIMode uiMode;
@@ -51,6 +54,10 @@ public class UIManager : MonoBehaviour {
 
     public SettlerListInfoPanel settlerListIP;
     public SettlerInfoPanel settlerIP;
+
+    public ResourcesInfoPanel resourceIP;
+
+
     public OrdersListInfoPanel ordersListIP;
 
     public void UISelectTile(Tile tile)

@@ -14,6 +14,11 @@ public class TileInfoPanel : PanelBase {
         this.Tile = content as Tile;
     }
 
+    public override void Clear()
+    {
+        Text1.text = "";
+    }
+
     public override void Draw()
     {
         string text = "";

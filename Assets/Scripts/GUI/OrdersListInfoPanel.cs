@@ -13,6 +13,10 @@ public class OrdersListInfoPanel : PanelBase
     {
         throw new NotImplementedException();
     }
+    public override void Clear()
+    {
+        text1.text = "";
+    }
 
     public override void Draw()
     {

@@ -129,6 +129,7 @@
     <Compile Include="Assets\Editor\Data\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Editor\Data\TradeDataAsset.cs" />
     <Compile Include="Assets\Editor\Inspectors\BuildingEditor.cs" />
+    <Compile Include="Assets\Editor\Inspectors\CityManagerEditor.cs" />
     <Compile Include="Assets\Editor\Inspectors\TileEditor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

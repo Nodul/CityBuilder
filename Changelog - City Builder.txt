@@ -2,8 +2,8 @@ A City Builder, inspired by Grand Ages Rome, Children of the Nile, Lands of Lord
 ======
 Issues
 ======
--Hmm, GUI: info will be on the left, while actionable things to the right, that's the general rule, for now. I'll see how it feels like
--SettlerInfoPanel needs a Goto panel
+-Hmm, GUI: info will be on the left, while actionable things to the right, that's the general rule, for now. I'll see how does it feel like
+-SettlerInfoPanel needs a Goto button
 
 ======
 TODO
@@ -13,11 +13,13 @@ TODO
 ======
 Changelog
 ======
-r4 TODO
-ADDED
--TODO buildings actually work now [have effects]
+r5 TODO
 -TODO basic orders for Settlers [move, build building, demolish]
--TODO basic resources
+-TODO buildings actually work now [have effects]
+
+r4 
+ADDED
+-basic resources [global resources [for city] look nice] + a wrapper class so the inspector sees the resources
 
 r3 
 Added

@@ -12,27 +12,27 @@ public class ResoucePanel : MonoBehaviour {
 
     void Update()
     {
-        UpdateMe();
+        //UpdateMe();
     }
 
-    public void UpdateMe()
-    {
-        switch (myResource)
-        {
-            case Resources.Cash:
-           //     UpdateText(CityManager.Instance.Cash.ToString());
-                break;
-            case Resources.Wood:
-           //     UpdateText(CityManager.Instance.Wood.ToString());
-                break;
-            case Resources.Wheat:
-          //      UpdateText(CityManager.Instance.Wheat.ToString());
-                break;
-            case Resources.Pops:
-          //      UpdateText(CityManager.Instance.Pops.ToString());
-                break;
-        }
-    }
+    //public void UpdateMe()
+    //{
+    //    switch (myResource)
+    //    {
+    //        case Resources.Cash:
+    //       //     UpdateText(CityManager.Instance.Cash.ToString());
+    //            break;
+    //        case Resources.Wood:
+    //       //     UpdateText(CityManager.Instance.Wood.ToString());
+    //            break;
+    //        case Resources.Wheat:
+    //      //      UpdateText(CityManager.Instance.Wheat.ToString());
+    //            break;
+    //        case Resources.Pops:
+    //      //      UpdateText(CityManager.Instance.Pops.ToString());
+    //            break;
+    //    }
+    //}
 
     public void UpdateText(string str)
     {

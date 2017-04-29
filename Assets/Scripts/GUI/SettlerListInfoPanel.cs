@@ -17,6 +17,13 @@ public class SettlerListInfoPanel : PanelBase {
         this.settlers = content as List<Settler>;
     }
 
+    public override void Clear()
+    {
+        var children = new List<GameObject>();
+        foreach (Transform child in listPanel.transform) children.Add(child.gameObject);
+        children.ForEach(child => Destroy(child));
+    }
+
     public override void Draw()
     {
         Clear();
@@ -31,12 +38,8 @@ public class SettlerListInfoPanel : PanelBase {
             button.SetSettler(this.settlers[i]);
         }
     }
-    // Candidate for base class
-    public void Clear()
-    {
-        var children = new List<GameObject>();
-        foreach (Transform child in listPanel.transform) children.Add(child.gameObject);
-        children.ForEach(child => Destroy(child));
-    }
+
+
+
 
 }

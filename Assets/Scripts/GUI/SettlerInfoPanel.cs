@@ -25,7 +25,7 @@ public class SettlerInfoPanel : PanelBase
         text1.text = entry;
     }
 
-    public void Clear()
+    public override void Clear()
     {
         text1.text = "";
     }

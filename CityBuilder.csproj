@@ -85,6 +85,8 @@
     <Compile Include="Assets\Scripts\GUI\OrdersListInfoPanel.cs" />
     <Compile Include="Assets\Scripts\GUI\PanelBase.cs" />
     <Compile Include="Assets\Scripts\GUI\ResoucePanel.cs" />
+    <Compile Include="Assets\Scripts\GUI\ResourceSelectionButton.cs" />
+    <Compile Include="Assets\Scripts\GUI\ResourcesInfoPanel.cs" />
     <Compile Include="Assets\Scripts\GUI\Selector.cs" />
     <Compile Include="Assets\Scripts\GUI\SettlerInfoPanel.cs" />
     <Compile Include="Assets\Scripts\GUI\SettlerListInfoPanel.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Assets\Scripts\Orders\OrderBase.cs" />
     <Compile Include="Assets\Scripts\Resource.cs" />
     <Compile Include="Assets\Scripts\ResourceData.cs" />
+    <Compile Include="Assets\Scripts\ResourceDataMap.cs" />
     <Compile Include="Assets\Scripts\Settler.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\TradeData.cs" />

@@ -14,6 +14,10 @@ public class BuildingInfoPanel : PanelBase {
     {
         this.Building = content as Building;
     }
+    public override void Clear()
+    {
+        Text1.text = "";
+    }
 
     public override void Draw()
     {

@@ -6,6 +6,7 @@ public abstract class PanelBase : MonoBehaviour {
 
     public abstract void AssignContent<T>(T content);
     public abstract void Draw();
+    public abstract void Clear();
 
 
 }
